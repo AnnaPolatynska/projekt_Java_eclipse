@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="793.0" prefWidth="853.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.pracownikController">
+   <top>
+      <VBox prefHeight="107.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label prefHeight="58.0" prefWidth="598.0" text="Ewidencja produktów i cen">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button mnemonicParsing="false" onAction="#btnExitAction" text="Cofnij" textFill="#f50303" />
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <VBox prefHeight="326.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView fx:id="Table1" prefHeight="339.0" prefWidth="600.0">
+              <columns>
+                <TableColumn fx:id="col_id" prefWidth="42.0" text="id" />
+                <TableColumn fx:id="col_typ" prefWidth="108.0" text="typ" />
+                  <TableColumn fx:id="col_opis" prefWidth="380.0" text="opis" />
+                  <TableColumn fx:id="col_kolor" prefWidth="96.0" text="kolor" />
+                  <TableColumn fx:id="col_cena" prefWidth="90.0" text="cena" />
+                  <TableColumn fx:id="col_cenaB" prefWidth="98.0" text="cena brutto" />
+              </columns>
+            </TableView>
+            <HBox prefHeight="50.0" prefWidth="600.0">
+               <children>
+                  <Button fx:id="select" mnemonicParsing="false" onAction="#btnSelectAction" prefHeight="49.0" prefWidth="600.0" text="Select" />
+                  <Button fx:id="delete" mnemonicParsing="false" onAction="#btnDeleteAction" prefHeight="49.0" prefWidth="600.0" text="Delete" />
+                  <Button fx:id="insert" mnemonicParsing="false" onAction="#btnInsertAction" prefHeight="49.0" prefWidth="600.0" text="Insert" />
+                  <Button fx:id="update" mnemonicParsing="false" onAction="#btnUpdateAction" prefHeight="49.0" prefWidth="600.0" text="Update" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <AnchorPane prefHeight="320.0" prefWidth="853.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox layoutX="43.0" layoutY="35.0" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label prefHeight="200.0" prefWidth="100.0" text="typ" />
+                  <Label layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" text="opis" />
+                  <Label layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" text="kolor" />
+                  <Label layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" text="cena" />
+                  <Label layoutX="10.0" layoutY="170.0" prefHeight="200.0" prefWidth="100.0" text="cena brutto" />
+               </children>
+            </VBox>
+            <VBox fx:id="V2" layoutX="139.0" layoutY="35.0" prefHeight="200.0" prefWidth="639.0">
+               <children>
+                  <TextField fx:id="tf_typ" prefHeight="235.0" prefWidth="100.0" />
+                  <TextField fx:id="tf_opis" layoutX="10.0" layoutY="10.0" prefHeight="235.0" prefWidth="100.0" />
+                  <TextField fx:id="tf_kolor" layoutX="10.0" layoutY="10.0" prefHeight="235.0" prefWidth="100.0" />
+                  <TextField fx:id="tf_cena" layoutX="10.0" layoutY="10.0" prefHeight="235.0" prefWidth="100.0" />
+                  <TextField fx:id="tf_cenaB" layoutX="10.0" layoutY="170.0" prefHeight="235.0" prefWidth="100.0" />
+               </children>
+            </VBox>
+            <Button fx:id="btn_insert_commit" layoutX="139.0" layoutY="257.0" mnemonicParsing="false" onAction="#btnInsertCommitAction" prefHeight="31.0" prefWidth="300.0" text="Zapisz Insert" />
+            <Button fx:id="btn_update_commit" layoutX="475.0" layoutY="257.0" mnemonicParsing="false" onAction="#btnUpdateCommitAction" prefHeight="31.0" prefWidth="300.0" text="Zapisz Update" />
+         </children>
+      </AnchorPane>
+   </bottom>
+</BorderPane>
