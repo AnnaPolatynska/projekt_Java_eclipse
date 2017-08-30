@@ -8,7 +8,6 @@ public class TableModelKoszyk {
 	private String opis;
 	private String kolor;
 	private double cena;
-	private double cenaB;
 	
 	public int getId_z() {
 		return id_z;
@@ -38,37 +37,28 @@ public class TableModelKoszyk {
 	public double getCena() {
 		return cena;
 	}
-	public void setCena(double cena) {
+	public void setCenaB(double cena) {
 		this.cena = cena;
-	}
-	
-	public double getCenaB() {
-		return cenaB;
-	}
-	public void setCenaB(double cenaB) {
-		this.cenaB = cenaB;
 	}
 	
 	// konstruktor 
 	public TableModelKoszyk(){}
 	
 	// ! nazwy kolumn takie same jak w mysqlu
-	public TableModelKoszyk(int id_z, String opis, String kolor, double cena, double cenaB) {
+	public TableModelKoszyk(int id_z, String opis, String kolor, double cena) {
 		super();
 		this.id_z= id_z;
 		this.opis = opis;
 		this.kolor = kolor;
 		this.cena = cena;
-		this.cenaB = cenaB;
 	}
 	
-	public TableModelKoszyk(String opis, String kolor, double cena, double cenaB) {
+	public TableModelKoszyk(String opis, String kolor, double cena) {
 		super();
 		
 		this.opis = opis;
 		this.kolor = kolor;
 		this.cena = cena;
-		this.cenaB = cenaB;
 	}
 	
 }
