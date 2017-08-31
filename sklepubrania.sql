@@ -33,11 +33,22 @@ insert into ubrania (typ, opis, kolor, cena) values('gora','biała bluzka koszul
 insert into ubrania (typ, opis, kolor, cena) values('wierzch','niebieski sweter rozpinany', 'blue', 80);
 insert into ubrania (typ, opis, kolor, cena) values('gora', 'niebieska bluzka koszulowa', 'blue', 61);
 insert into ubrania (typ, opis, kolor, cena) values('dol','czarna spódnica', 'blue', 90);
-insert into ubrania (typ, opis, kolor, cena) values('gora','zielona bluzka koszulowa', 'green', 50);
+insert into ubrania (typ, opis, kolor, cena) values('gora','zielona bluzka koszulowa', 'green', 60);
+insert into ubrania (typ, opis, kolor, cena) values ('dol','czarne spodnie', 'black', 147);
+insert into ubrania (typ, opis, kolor, cena) values('dol','czarna spódnica', 'black', 120);
+insert into ubrania (typ, opis, kolor, cena) values('wierzch','niebieski żakiet', 'blue', 154);
+insert into ubrania (typ, opis, kolor, cena) values('wierzch','czarny sweter rozpinany', 'black', 80);
+insert into ubrania (typ, opis, kolor, cena) values('gora', 'szara bluzka koszulowa', 'grey', 75);
+insert into ubrania (typ, opis, kolor, cena) values('gora','niebieska bluzka koszulowa w kwiaty', 'blue', 75);
+insert into ubrania (typ, opis, kolor, cena) values('gora','biała bluzka koszulowa w kratkę', 'white', 50);
+insert into ubrania (typ, opis, kolor, cena) values('wierzch','niebieski sweter', 'blue', 90);
+insert into ubrania (typ, opis, kolor, cena) values('gora', 'biała bluzka koszulowa jedwab', 'white', 161);
+insert into ubrania (typ, opis, kolor, cena) values('dol','czarna spódnica z guzikami', 'black', 190);
+insert into ubrania (typ, opis, kolor, cena) values('gora','zielona bluzka koszulowa w kwiaty', 'green', 30);
 
 select * from ubrania;
 select * from zamowienia;
-#drop table ubrania;
+drop table ubrania;
 
 select opis, kolor, cena from ubrania where typ= 'dol';
 select opis, kolor, cena from ubrania where typ= 'gora';
@@ -57,5 +68,7 @@ insert into zamowienia (id, typ, opis, kolor, cena) values ( 1,'dol','zielono-ni
 insert into zamowienia (typ, opis, kolor, cena) values('dol', 'niebieska spódnica', 'blue', 90);
 select* from zamowienia;
 
-delete from zamowienia;
+select sum(cena) from zamowienia;
+
+delete from zamowienia where id=5;
 drop table zamowienia;

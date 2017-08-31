@@ -5,15 +5,16 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="705.0" prefWidth="1069.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.klientController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="705.0" prefWidth="1106.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.klientController">
    <top>
-      <AnchorPane prefHeight="81.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="81.0" prefWidth="1122.0" BorderPane.alignment="CENTER">
          <children>
             <Label layoutX="14.0" layoutY="1.0" prefHeight="26.0" prefWidth="260.0" text="Witamy w naszym sklepie" />
             <Label layoutX="641.0" layoutY="27.0" prefHeight="37.0" prefWidth="199.0" text="Twój koszyk" />
@@ -57,11 +58,12 @@
                </children>
             </HBox>
             <Label layoutX="30.0" layoutY="225.0" prefHeight="21.0" prefWidth="403.0" text="Dostępne produkty z wybranej przez Ciebie kategorii" />
-            <TableView fx:id="table_dostepne" layoutX="20.0" layoutY="258.0" prefHeight="286.0" prefWidth="573.0">
+            <TableView fx:id="table_dostepne" layoutX="20.0" layoutY="258.0" prefHeight="286.0" prefWidth="582.0">
                <columns>
-                  <TableColumn fx:id="col_opis" prefWidth="283.0" text="opis" />
-                  <TableColumn fx:id="col_kolor" prefWidth="109.0" text="kolor" />
-                  <TableColumn fx:id="col_cena" prefWidth="180.0" text="cena" />
+                  <TableColumn fx:id="col_id" minWidth="1.0" prefWidth="56.0" text="id" />
+                  <TableColumn fx:id="col_opis" prefWidth="232.0" text="opis" />
+                  <TableColumn fx:id="col_kolor" prefWidth="151.0" text="kolor" />
+                  <TableColumn fx:id="col_cena" prefWidth="138.0" text="cena" />
                </columns>
             </TableView>
             <Button fx:id="btn_do_koszyka" layoutX="20.0" layoutY="563.0" mnemonicParsing="false" onAction="#btnDoKoszykaAction" prefHeight="31.0" prefWidth="573.0" text="Do koszyka" />
@@ -70,17 +72,31 @@
       </AnchorPane>
    </center>
    <right>
-      <AnchorPane prefHeight="497.0" prefWidth="443.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="624.0" prefWidth="499.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView fx:id="table_koszyk" layoutX="14.0" layoutY="10.0" prefHeight="292.0" prefWidth="421.0">
+            <TableView fx:id="table_koszyk" layoutX="6.0" layoutY="6.0" prefHeight="292.0" prefWidth="473.0">
                <columns>
-                  <TableColumn fx:id="col_opis_koszyk" prefWidth="199.0" text="opis" />
-                  <TableColumn fx:id="col_kolor_koszyk" prefWidth="56.0" text="kolor" />
-                  <TableColumn fx:id="col_cena_koszyk" prefWidth="165.0" text="cena" />
+                  <TableColumn fx:id="col_id_koszyk" prefWidth="45.0" text="id" />
+                  <TableColumn fx:id="col_opis_koszyk" prefWidth="266.0" text="opis" />
+                  <TableColumn fx:id="col_kolor_koszyk" prefWidth="73.0" text="kolor" />
+                  <TableColumn fx:id="col_cena_koszyk" prefWidth="82.0" text="cena" />
                </columns>
             </TableView>
-            <Button fx:id="btn_usun" layoutX="22.0" layoutY="314.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="184.0" text="Usuń produkt" />
-            <Button fx:id="btn_zamawiam" layoutX="22.0" layoutY="367.0" mnemonicParsing="false" onAction="#btnZamawiamAction" prefHeight="31.0" prefWidth="184.0" text="Zamawiam" />
+            <Button fx:id="btn_usun" layoutX="22.0" layoutY="320.0" mnemonicParsing="false" onAction="#btnUsunAction" prefHeight="31.0" prefWidth="184.0" text="Usuń produkt" />
+            <Button fx:id="btn_zamawiam" layoutX="22.0" layoutY="518.0" mnemonicParsing="false" onAction="#btnZamawiamAction" prefHeight="31.0" prefWidth="184.0" text="Zamawiam" />
+            <HBox layoutX="22.0" layoutY="382.0" prefHeight="57.0" prefWidth="471.0">
+               <children>
+                  <Label prefHeight="58.0" prefWidth="268.0" text="Wartośc zamówienia w koszyku wynosi: " />
+                  <TextField fx:id="tf_suma" prefHeight="54.0" prefWidth="144.0" />
+                  <Label alignment="CENTER" prefHeight="55.0" prefWidth="42.0" text="zł" textAlignment="CENTER" textOverrun="CLIP" />
+               </children>
+            </HBox>
+            <TableView fx:id="TV_suma" layoutX="258.0" layoutY="490.0" prefHeight="75.0" prefWidth="200.0">
+              <columns>
+                <TableColumn fx:id="tb_suma" prefWidth="199.0" text="Suma" />
+              </columns>
+            </TableView>
+            <Button fx:id="btn_odswiez" layoutX="414.0" layoutY="320.0" mnemonicParsing="false" onAction="#btnOdswiezAction" text="odśwież" />
          </children>
       </AnchorPane>
    </right>

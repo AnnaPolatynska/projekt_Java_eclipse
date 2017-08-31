@@ -44,8 +44,9 @@ public class TableModel {
 	public TableModel(){}
 	// konstruktor wyboru klienta
 	
-	public TableModel(String opis, String kolor, double cena) {
+	public TableModel(int id, String opis, String kolor, double cena) {
 		super();
+		this.id = id;
 		this.opis = opis;
 		this.kolor = kolor;
 		this.cena = cena;
