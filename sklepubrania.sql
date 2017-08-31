@@ -35,8 +35,8 @@ insert into ubrania (typ, opis, kolor, cena) values('gora', 'niebieska bluzka ko
 insert into ubrania (typ, opis, kolor, cena) values('dol','czarna spódnica', 'blue', 90);
 insert into ubrania (typ, opis, kolor, cena) values('gora','zielona bluzka koszulowa', 'green', 50);
 
-
-
+select * from ubrania;
+select * from zamowienia;
 #drop table ubrania;
 
 select opis, kolor, cena from ubrania where typ= 'dol';
@@ -44,13 +44,18 @@ select opis, kolor, cena from ubrania where typ= 'gora';
 select opis, kolor, cena from ubrania where typ= 'wierzch';
 
 CREATE TABLE zamowienia (
-    id_z int primary key auto_increment,
+    id_z INT PRIMARY KEY AUTO_INCREMENT,
+    id int,
     typ VARCHAR(20),
     opis VARCHAR(80),
     kolor VARCHAR(10),
-    cena INTEGER
+    cena INTEGER,
+    FOREIGN KEY (id)
+        REFERENCES ubrania (id)
 );
-#insert into zamowienia (typ, opis, kolor, cena) values ('zielono-niebieskie spodnie w kwiatki', 'blue', 120);
-#insert into zamowienia (typ, opis, kolor, cena) values('niebieska spódnica', 'blue', 90);
+insert into zamowienia (id, typ, opis, kolor, cena) values ( 1,'dol','zielono-niebieskie spodnie w kwiatki', 'blue', 147);
+insert into zamowienia (typ, opis, kolor, cena) values('dol', 'niebieska spódnica', 'blue', 90);
 select* from zamowienia;
-#drop table zamowienia;
+
+delete from zamowienia;
+drop table zamowienia;

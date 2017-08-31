@@ -134,9 +134,7 @@ import javafx.stage.Stage;
 	    	Connection conn = (Connection) db.Connection();
 	    	data=FXCollections.observableArrayList();
 	    	ResultSet rs= conn.createStatement().executeQuery("select * from ubrania");
-	    		    	
 	    	
-	    
 	    	while(rs.next()){
 	    	data.add(new TableModel(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getString(4), rs.getDouble(5)));
 	    	}
@@ -153,6 +151,11 @@ import javafx.stage.Stage;
 
 	    @FXML
 	    void btnUpdateAction(ActionEvent event) {
+	    	btn_insert_commit.setDisable(true);
+	    	tf_typ.setDisable(false);
+	    	tf_opis.setDisable(false);
+	    	tf_kolor.setDisable(false);
+	    	tf_cena.setDisable(false);    	
 	    	
 	    	try{
 	        	tf_typ.setText(Table1.getSelectionModel().getSelectedItem().getTyp());
@@ -167,6 +170,7 @@ import javafx.stage.Stage;
 	    			a.setTitle("Error");
 	    			a.showAndWait();
 	        	}
+	    	// btn_insert_commit.setDisable(false);
 	    }
 	    
 	    

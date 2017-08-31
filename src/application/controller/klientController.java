@@ -129,34 +129,57 @@ public class klientController {
 		stageInfo.show();
     }
 
-    /* @FXML
+    @FXML
     void btnDoKoszykaAction(ActionEvent event) throws ClassNotFoundException, SQLException {
     	Connection conn = (Connection) db.Connection();
-    	String sql = "insert into ubrania (opis, kolor, cena) values ('"+col_opis.getText()+"', '"+col_kolor.getText()+"', "+col_cena.getText()+");";
-        //insert into zamowienia (opis, kolor, cena) values ('XX', 'XX', XX);
-    	PreparedStatement ps = conn.prepareStatement(sql);
-        ps.executeUpdate();
-        */
-        
-       //by wypisa³o?
-    	/*data=FXCollections.observableArrayList();
-    	ResultSet rs= conn.createStatement().executeQuery("select* from zamowienia;");
     	
-    	while(rs.next()){
-    		data.add(new TableModel(rs.getString(1), rs.getString(2), rs.getDouble(3)));
-    	}
-    	col_opis.setCellValueFactory(new PropertyValueFactory<TableModel,String>("opis"));
-    	col_kolor.setCellValueFactory(new PropertyValueFactory<TableModel,String>("kolor"));
-    	col_cena.setCellValueFactory(new PropertyValueFactory<TableModel,Integer>("cena"));
-
-    	table_dostepne.setItems(null);
-    	table_dostepne.setItems(data);
+    	//by przechwyci³o
     	
-    }
-      */
-        
+    	 String id_select = table_dostepne.getSelectionModel().getSelectedItem().getOpis();
+    	 String id_kolor = table_dostepne.getSelectionModel().getSelectedItem().getKolor();
+    	 Double id_cena = table_dostepne.getSelectionModel().getSelectedItem().getCena();
+    	 String sql = "select * from ubrania where opis='"+id_select+"';";
+	     System.out.println(id_select);
+	     PreparedStatement ps = conn.prepareStatement(sql);
+	     ps.executeQuery();
+	   
+	    
+	     String sql1 = "insert into zamowienia (opis, kolor, cena) values ('"+id_select+"', '"+id_kolor+"', "+id_cena+");";
+	     PreparedStatement ps1 = conn.prepareStatement(sql1);
+	     ps1.executeUpdate();
+	     //insert into zamowienia (opis, kolor, cena) values('XXX', 'XXX', 00);
+    	
+    	
+    	//wypisuje w tabeli zamówiania
+    	
+        	data=FXCollections.observableArrayList();
+        	ResultSet rs= conn.createStatement().executeQuery("select opis, kolor, cena from zamowienia;");
+        	
+        	while(rs.next()){
+        		data.add(new TableModel(rs.getString(1), rs.getString(2), rs.getDouble(3)));
+        	}
+        	col_opis_koszyk.setCellValueFactory(new PropertyValueFactory<TableModel,String>("opis"));
+        	col_kolor_koszyk.setCellValueFactory(new PropertyValueFactory<TableModel,String>("kolor"));
+           	col_cena_koszyk.setCellValueFactory(new PropertyValueFactory<TableModel,Integer>("cena"));
+           
+           	table_koszyk.setItems(null);
+           	table_koszyk.setItems(data);
+        }
+    	
+    	     
     
-
+    @FXML
+    void btnZamawiamAction(ActionEvent event) throws ClassNotFoundException, SQLException {
+    	Connection conn = (Connection) db.Connection();
+        String sql = "delete from zamowienia;";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.executeUpdate();
+        //dodaæ select by siê zaktualizowa³o ===> select
+    	}
+    
+    
+    
+    
     
     
     @FXML

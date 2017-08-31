@@ -80,7 +80,7 @@
                </columns>
             </TableView>
             <Button fx:id="btn_usun" layoutX="22.0" layoutY="314.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="184.0" text="Usuń produkt" />
-            <Button fx:id="btn_zamawiam" layoutX="22.0" layoutY="367.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="184.0" text="Zamawiam" />
+            <Button fx:id="btn_zamawiam" layoutX="22.0" layoutY="367.0" mnemonicParsing="false" onAction="#btnZamawiamAction" prefHeight="31.0" prefWidth="184.0" text="Zamawiam" />
          </children>
       </AnchorPane>
    </right>
