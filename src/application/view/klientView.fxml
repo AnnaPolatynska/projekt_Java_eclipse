@@ -5,50 +5,58 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="705.0" prefWidth="1106.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.klientController">
    <top>
-      <AnchorPane prefHeight="81.0" prefWidth="1122.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="81.0" prefWidth="1122.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="14.0" layoutY="1.0" prefHeight="26.0" prefWidth="260.0" text="Witamy w naszym sklepie" />
+            <Label layoutX="14.0" layoutY="1.0" prefHeight="53.0" prefWidth="492.0" text="Witamy w naszym sklepie" textFill="#3da466">
+               <font>
+                  <Font name="System Bold Italic" size="36.0" />
+               </font></Label>
             <Label layoutX="641.0" layoutY="27.0" prefHeight="37.0" prefWidth="199.0" text="Twój koszyk" />
-            <Button fx:id="btn_exit" layoutX="971.0" layoutY="22.0" mnemonicParsing="false" onAction="#btnExitAction" text="Cofnij" textFill="#fc0707" />
+            <Button fx:id="btn_exit" layoutX="971.0" layoutY="22.0" mnemonicParsing="false" onAction="#btnExitAction" style="-fx-background-color: #90EE90;" text="Cofnij" textFill="#fc0707" />
+            <ImageView fitHeight="55.0" fitWidth="56.0" layoutX="726.0" layoutY="18.0">
+               <image>
+                  <Image url="@../../../koszyk.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </top>
    <center>
-      <AnchorPane prefHeight="627.0" prefWidth="612.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="627.0" prefWidth="612.0" style="-fx-background: #E0FFFF;" BorderPane.alignment="CENTER">
          <children>
             <Label layoutX="30.0" layoutY="14.0" prefHeight="25.0" prefWidth="529.0" text="Jaka kategoria Ciebie interesuje?" />
-            <HBox layoutX="30.0" layoutY="41.0" prefHeight="162.0" prefWidth="539.0">
+            <HBox layoutX="30.0" layoutY="41.0" prefHeight="162.0" prefWidth="539.0" style="-fx-background-color: white;">
                <children>
-                  <Button fx:id="btn_gora" mnemonicParsing="false" onAction="#SelectGora" prefHeight="100.0" prefWidth="549.0">
+                  <Button fx:id="btn_gora" mnemonicParsing="false" onAction="#SelectGora" prefHeight="100.0" prefWidth="549.0" style="-fx-background-color: white;">
                      <graphic>
-                        <ImageView>
+                        <ImageView fitHeight="147.0" fitWidth="160.0">
                            <image>
                               <Image url="@../../../bluzka.jpg" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="btn_dol" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#SelectDol" prefHeight="100.0" prefWidth="549.0">
+                  <Button fx:id="btn_dol" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#SelectDol" prefHeight="100.0" prefWidth="549.0" style="-fx-background-color: white;">
                      <graphic>
-                        <ImageView>
+                        <ImageView fitHeight="145.0" fitWidth="128.0">
                            <image>
                               <Image url="@../../../spodnie.jpg" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="btn_wierzch" layoutX="280.0" layoutY="10.0" mnemonicParsing="false" onAction="#SelectWierzch" prefHeight="100.0" prefWidth="549.0">
+                  <Button fx:id="btn_wierzch" layoutX="280.0" layoutY="10.0" mnemonicParsing="false" onAction="#SelectWierzch" prefHeight="100.0" prefWidth="549.0" style="-fx-background-color: white;">
                      <graphic>
-                        <ImageView>
+                        <ImageView fitHeight="142.0" fitWidth="128.0">
                            <image>
                               <Image url="@../../../żakiet.jpg" />
                            </image>
@@ -66,13 +74,13 @@
                   <TableColumn fx:id="col_cena" prefWidth="138.0" text="cena" />
                </columns>
             </TableView>
-            <Button fx:id="btn_do_koszyka" layoutX="20.0" layoutY="563.0" mnemonicParsing="false" onAction="#btnDoKoszykaAction" prefHeight="31.0" prefWidth="573.0" text="Do koszyka" />
+            <Button fx:id="btn_do_koszyka" layoutX="20.0" layoutY="563.0" mnemonicParsing="false" onAction="#btnDoKoszykaAction" prefHeight="31.0" prefWidth="573.0" style="-fx-background-color: #90EE90;" text="Do koszyka" />
             <Separator layoutX="605.0" layoutY="-78.0" orientation="VERTICAL" prefHeight="705.0" prefWidth="2.0" />
          </children>
       </AnchorPane>
    </center>
    <right>
-      <AnchorPane prefHeight="624.0" prefWidth="499.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="624.0" prefWidth="499.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
             <TableView fx:id="table_koszyk" layoutX="6.0" layoutY="6.0" prefHeight="292.0" prefWidth="473.0">
                <columns>
@@ -82,21 +90,16 @@
                   <TableColumn fx:id="col_cena_koszyk" prefWidth="82.0" text="cena" />
                </columns>
             </TableView>
-            <Button fx:id="btn_usun" layoutX="22.0" layoutY="320.0" mnemonicParsing="false" onAction="#btnUsunAction" prefHeight="31.0" prefWidth="184.0" text="Usuń produkt" />
-            <Button fx:id="btn_zamawiam" layoutX="22.0" layoutY="518.0" mnemonicParsing="false" onAction="#btnZamawiamAction" prefHeight="31.0" prefWidth="184.0" text="Zamawiam" />
-            <HBox layoutX="22.0" layoutY="382.0" prefHeight="57.0" prefWidth="471.0">
-               <children>
-                  <Label prefHeight="58.0" prefWidth="268.0" text="Wartośc zamówienia w koszyku wynosi: " />
-                  <TextField fx:id="tf_suma" prefHeight="54.0" prefWidth="144.0" />
-                  <Label alignment="CENTER" prefHeight="55.0" prefWidth="42.0" text="zł" textAlignment="CENTER" textOverrun="CLIP" />
-               </children>
-            </HBox>
-            <TableView fx:id="TV_suma" layoutX="258.0" layoutY="490.0" prefHeight="75.0" prefWidth="200.0">
-              <columns>
-                <TableColumn fx:id="tb_suma" prefWidth="199.0" text="Suma" />
-              </columns>
-            </TableView>
-            <Button fx:id="btn_odswiez" layoutX="414.0" layoutY="320.0" mnemonicParsing="false" onAction="#btnOdswiezAction" text="odśwież" />
+            <Button fx:id="btn_usun" layoutX="22.0" layoutY="320.0" mnemonicParsing="false" onAction="#btnUsunAction" prefHeight="31.0" prefWidth="184.0" style="-fx-background-color: #90EE90;" text="Usuń produkt" textFill="#ee0a0a" />
+            <Button fx:id="btn_zamawiam" layoutX="22.0" layoutY="382.0" mnemonicParsing="false" onAction="#btnZamawiamAction" prefHeight="31.0" prefWidth="184.0" style="-fx-background-color: #90EE90;" text="Zamawiam" />
+            <Button fx:id="btn_odswiez" layoutX="414.0" layoutY="320.0" mnemonicParsing="false" onAction="#btnOdswiezAction" style="-fx-background-color: white;">
+               <graphic>
+                  <ImageView fitHeight="42.0" fitWidth="46.0">
+                     <image>
+                        <Image url="@../../../strzalki.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
          </children>
       </AnchorPane>
    </right>

@@ -60,19 +60,15 @@ public class klientController {
     private TableColumn<TableModel, String> col_kolor_koszyk;
     @FXML
     private TableColumn<TableModel, Integer> col_cena_koszyk;
-    @FXML
-    private Button btn_usun;
+    
     @FXML
     private Button btn_zamawiam;
     
+       
     @FXML
-    private TextField tf_suma;
+    private Button btn_usun;
 
-    @FXML
-    private TableView<?> TV_suma;
-    @FXML
-    private TableColumn<?, ?> tb_suma;
-    
+       
     @FXML
     private Button btn_odswiez;
 
@@ -227,8 +223,6 @@ public class klientController {
         table_koszyk.setItems(data);
         }
     
-    
-   
     
 //przycisk z³o¿enia zamówienia   
     @FXML
